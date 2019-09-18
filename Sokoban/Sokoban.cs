@@ -20,6 +20,8 @@ namespace Sokoban
 
             _playingField = _levelParser.getPlayingField();
 
+            _playingField.Show();
+
             while (_playing)
             {
                 ConsoleKey keyPressed = Console.ReadKey().Key;

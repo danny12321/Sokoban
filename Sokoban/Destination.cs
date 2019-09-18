@@ -7,5 +7,10 @@ namespace Sokoban
 {
     public class Destination : Square
     {
+
+        public override void Show()
+        {
+            Console.Write("x");
+        }
     }
 }

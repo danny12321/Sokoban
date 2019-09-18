@@ -14,7 +14,7 @@ namespace Sokoban
 
         public virtual void Show()
         {
-
+            Console.Write(" ");
         }
     }
 }

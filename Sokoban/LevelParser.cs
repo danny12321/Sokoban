@@ -45,7 +45,7 @@ namespace Sokoban
                             var chest = new Floor();
                             chest.PosX = x;
                             chest.PosY = y;
-                            chest.Moving = new Chest();
+                            chest.Moving = new Chest(chest);
                             row.Add(chest);
                             break;
 
@@ -60,7 +60,7 @@ namespace Sokoban
                             var player = new Floor();
                             player.PosX = x;
                             player.PosY = y;
-                            player.Moving = new Player();
+                            player.Moving = new Player(player);
                             row.Add(player);
                             break;
                     }

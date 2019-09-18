@@ -14,26 +14,71 @@ namespace Sokoban
 
         public Sokoban()
         {
-            this.WelcomeText();
-            this.ChooseLevel();
+            WelcomeText();
+            ChooseLevel();
             _playing = true;
 
 
-            _playingField.Show();
 
             while (_playing)
             {
+                _playingField.Show();
+
                 ConsoleKey keyPressed = Console.ReadKey().Key;
-                Console.WriteLine(keyPressed);
 
                 var player = getPlayer();
 
-                Console.WriteLine(player.PosX + " " + player.PosY);
+                movePlayer(player, keyPressed);
 
                 if (keyPressed == ConsoleKey.S)
                 {
                     _playing = false;
                 }
+            }
+        }
+
+        private void movePlayer(Square player, ConsoleKey keyPressed)
+        {
+            int xTo = 0;
+            int yTo = 0;
+            
+            switch (keyPressed)
+            {
+                case ConsoleKey.LeftArrow:
+                    xTo = -1;
+                    break;
+                case ConsoleKey.UpArrow:
+                    yTo = -1;
+                    break;
+                case ConsoleKey.RightArrow:
+                    xTo = 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    yTo = 1;
+                    break;
+            }
+
+            int x = player.PosX + xTo;
+            int y = player.PosY + yTo;
+
+            if (_playingField.SquareList[y][x].Moving is Chest)
+            {
+                if(_playingField.SquareList[y + yTo][x + xTo] is Floor || _playingField.SquareList[y + yTo][x + xTo] is Destination)
+                {
+                    _playingField.SquareList[y + yTo][x + xTo].Moving = _playingField.SquareList[y][x].Moving;
+                    _playingField.SquareList[y][x].Moving = null;
+                } else
+                {
+                    return;
+                }
+            }
+
+            if (_playingField.SquareList[y][x] is Floor || _playingField.SquareList[y][x] is Destination)
+            {
+                _playingField.SquareList[y][x].Moving = player.Moving;
+                _playingField.SquareList[y][x].Moving.Square = player.Moving.Square;
+                player.Moving.Square = null;
+                player.Moving = null;
             }
         }
 

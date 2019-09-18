@@ -7,7 +7,10 @@ namespace Sokoban
 {
     public class Player : Moving
     {
+        public Player(Square square) : base (square)
+        {
 
+        }
 
         public override void Show()
         {

@@ -29,7 +29,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.PlayingField">
-    <Position X="4.25" Y="1" Width="1.5" />
+    <Position X="4.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAUAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PlayingField.cs</FileName>
@@ -43,11 +43,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Moving">
-    <Position X="7.75" Y="3.25" Width="1.5" />
+    <Position X="7.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
       <FileName>Moving.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Square" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Square">
     <Position X="4.5" Y="2.75" Width="1.5" />

@@ -14,6 +14,7 @@ namespace Sokoban
 
         public Sokoban()
         {
+            this.WelcomeText();
             this.ChooseLevel();
             _playing = true;
 
@@ -36,10 +37,31 @@ namespace Sokoban
             }
         }
 
+        private void WelcomeText()
+        {
+            Console.WriteLine("Welcome to Sokoban!");
+            Console.WriteLine("Push the crates to the destinations with the truck \n");
+
+            Console.WriteLine("Symbols:");
+            Console.WriteLine("#: Wall");
+            Console.WriteLine(".: Floor");
+            Console.WriteLine("o: Chest");
+            Console.WriteLine("O: Chest at destination");
+            Console.WriteLine("x: Destination");
+            Console.WriteLine("@: Truck");
+
+            Console.WriteLine();
+        }
+
         private void ChooseLevel()
         {
-            Console.WriteLine("Choose a level. 1 - 2");
+            Console.WriteLine("Choose a level (1 - 2)");
             var value = Console.ReadLine();
+
+            if(value == "s")
+            {
+                System.Environment.Exit(1);
+            }
 
             try
             {

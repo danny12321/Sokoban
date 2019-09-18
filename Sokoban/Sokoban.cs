@@ -8,33 +8,27 @@ namespace Sokoban
 {
     public class Sokoban
     {
-        private LevelParser _levelParser;
+        private LevelParser _levelParser = new LevelParser();
         private bool _playing;
         private PlayingField _playingField;
 
         public Sokoban()
         {
+            this.WelcomeText();
+            this.ChooseLevel();
             _playing = true;
 
-            _levelParser = new LevelParser();
 
-            _playingField = _levelParser.getPlayingField();
-
+            _playingField.Show();
 
             while (_playing)
             {
-                _playingField.Show();
-                // input
-                // change field
-
-                // Get player input
                 ConsoleKey keyPressed = Console.ReadKey().Key;
+                Console.WriteLine(keyPressed);
 
-                // Get player
                 var player = getPlayer();
 
-                movePlayer(player, keyPressed);
-
+                Console.WriteLine(player.PosX + " " + player.PosY);
 
                 if (keyPressed == ConsoleKey.S)
                 {
@@ -43,38 +37,53 @@ namespace Sokoban
             }
         }
 
-        private void movePlayer(Square player, ConsoleKey keyPressed)
+        private void WelcomeText()
         {
-            int x = player.PosY;
-            int y = player.PosX;
+            Console.WriteLine("Welcome to Sokoban!");
+            Console.WriteLine("Push the crates to the destinations with the truck \n");
 
-            Console.WriteLine(_playingField.SquareList[y][x].PosX + " " + _playingField.SquareList[y][x].PosY);
-            
-            switch (keyPressed)
+            Console.WriteLine("Symbols:");
+            Console.WriteLine("#: Wall");
+            Console.WriteLine(".: Floor");
+            Console.WriteLine("o: Chest");
+            Console.WriteLine("O: Chest at destination");
+            Console.WriteLine("x: Destination");
+            Console.WriteLine("@: Truck");
+
+            Console.WriteLine();
+        }
+
+        private void ChooseLevel()
+        {
+            Console.WriteLine("Choose a level (1 - 2)");
+            var value = Console.ReadLine();
+
+            if(value == "s")
             {
-                case ConsoleKey.LeftArrow:
-                    x = x - 1;
-                    break;
-                case ConsoleKey.UpArrow:
-                    y = y - 1;
-                    break;
-                case ConsoleKey.RightArrow:
-                    x = x + 1;
-                    break;
-                case ConsoleKey.DownArrow:
-                    y = y + 1;
-                    break;
+                System.Environment.Exit(1);
             }
 
-
-            if(_playingField.SquareList[y][x] is Floor)
+            try
             {
-                _playingField.SquareList[y][x].Moving = player.Moving;
-                player.Moving = null;
+                int level = Int32.Parse(value);
+
+                if (level >= 1 && level <= 2)
+                {
+                    _playingField = _levelParser.getPlayingField(level);
+                } else
+                {
+                    Console.WriteLine($"Level {level} does not exist");
+                    this.ChooseLevel();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong, please try again");
+                this.ChooseLevel();
             }
         }
 
-        private Square getPlayer()
+        public Square getPlayer()
         {
             for (int i = 0; i < _playingField.SquareList.Count; i++)
             {

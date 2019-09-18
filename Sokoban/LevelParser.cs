@@ -29,8 +29,6 @@ namespace Sokoban
                 }
             }
 
-            Console.ReadLine();
-
             return playingField;
         }
     }

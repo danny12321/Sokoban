@@ -19,8 +19,17 @@ namespace Sokoban
         {
             _squareList.ForEach(row =>
             {
+                Console.WriteLine();
+
                 row.ForEach(s =>
                 {
+                    if (s.Moving == null)
+                    {
+                        s.Show();
+                    } else
+                    {
+                        s.Moving.Show();
+                    }
                 });
             });
         }

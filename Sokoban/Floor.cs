@@ -7,5 +7,11 @@ namespace Sokoban
 {
     public class Floor : Square
     {
+
+
+        public override void Show()
+        {
+            Console.Write(".");
+        }
     }
 }

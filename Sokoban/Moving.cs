@@ -7,6 +7,9 @@ namespace Sokoban
 {
     public abstract class Moving
     {
-
+        public virtual void Show()
+        {
+            Console.Write(" ");
+        }
     }
 }

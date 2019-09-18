@@ -7,5 +7,11 @@ namespace Sokoban
 {
     public class Player : Moving
     {
+
+
+        public override void Show()
+        {
+            Console.Write("@");
+        }
     }
 }

@@ -7,5 +7,11 @@ namespace Sokoban
 {
     public class Chest : Moving
     {
+
+
+        public override void Show()
+        {
+            Console.Write("o");
+        }
     }
 }

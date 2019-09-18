@@ -31,12 +31,9 @@
   <Class Name="Sokoban.PlayingField">
     <Position X="4.25" Y="1" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PlayingField.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="SquareList" />
-    </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Sokoban.Chest">
     <Position X="11" Y="5" Width="1.5" />

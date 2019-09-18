@@ -7,6 +7,13 @@ namespace Sokoban
 {
     public class PlayingField
     {
-        private List<Square> SquareList;
+        private List<Square> _squareList = new List<Square>();
+
+        public List<Square> SquareList
+        {
+            get { return _squareList; }
+            set { _squareList = value; }
+        }
+
     }
 }

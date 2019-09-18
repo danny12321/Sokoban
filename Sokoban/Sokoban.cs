@@ -24,6 +24,11 @@ namespace Sokoban
             {
                 ConsoleKey keyPressed = Console.ReadKey().Key;
                 Console.WriteLine(keyPressed);
+
+                var player = getPlayer();
+
+                Console.WriteLine(player.PosX + " " + player.PosY);
+
                 if (keyPressed == ConsoleKey.S)
                 {
                     _playing = false;
@@ -31,10 +36,22 @@ namespace Sokoban
             }
         }
 
-        //public Square getPlayer()
-        //{
-        //    _playingField.
-        //}
+        public Square getPlayer()
+        {
+            for (int i = 0; i < _playingField.SquareList.Count; i++)
+            {
+                for (int j = 0; j < _playingField.SquareList[i].Count; j++)
+                {
+                    if (_playingField.SquareList[i][j].Moving is Player)
+                    {
+                        return _playingField.SquareList[i][j];
+                    }
+                }
+            }
+
+            return null;
+
+        }
     }
 
 }

@@ -10,9 +10,9 @@ namespace Sokoban
     {
         static void Main(string[] args)
         {
-            var LevelParser = new LevelParser();
-
-            LevelParser.getPlayingField();
+            new Sokoban();
         }
+
+        
     }
 }

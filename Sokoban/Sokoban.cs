@@ -70,9 +70,11 @@ namespace Sokoban
                         return;
                     } else
                     {
+
+                        // TODO: LOOK HERE GOOD AT || WORKS BUT DON'T KNOW WHY
                         _playingField.SquareList[y + yTo][x + xTo].Moving = _playingField.SquareList[y][x].Moving;
                         _playingField.SquareList[y + yTo][x + xTo].Moving.Square = _playingField.SquareList[y][x].Moving.Square;
-                        _playingField.SquareList[y][x].Moving.Square = null;
+                        _playingField.SquareList[y][x].Moving.Square = _playingField.SquareList[y + yTo][x + xTo];
                         _playingField.SquareList[y][x].Moving = null;
                     }
                 } else
@@ -85,7 +87,7 @@ namespace Sokoban
             {
                 _playingField.SquareList[y][x].Moving = player.Moving;
                 _playingField.SquareList[y][x].Moving.Square = player.Moving.Square;
-                player.Moving.Square = null;
+                player.Moving.Square = _playingField.SquareList[y][x];
                 player.Moving = null;
             }
         }

@@ -14,7 +14,16 @@ namespace Sokoban
 
         public override void Show()
         {
-            Console.Write("o");
+            var e = Square;
+
+            if(Square is Destination)
+            {
+                Console.Write("O");
+            }
+            else
+            {
+                Console.Write("o");
+            }
         }
     }
 }

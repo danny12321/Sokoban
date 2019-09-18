@@ -17,6 +17,8 @@ namespace Sokoban
 
         public void Show()
         {
+            Console.Clear();
+
             _squareList.ForEach(row =>
             {
                 Console.WriteLine();

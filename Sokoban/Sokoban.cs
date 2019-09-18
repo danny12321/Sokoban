@@ -71,6 +71,8 @@ namespace Sokoban
                     } else
                     {
                         _playingField.SquareList[y + yTo][x + xTo].Moving = _playingField.SquareList[y][x].Moving;
+                        _playingField.SquareList[y + yTo][x + xTo].Moving.Square = _playingField.SquareList[y][x].Moving.Square;
+                        _playingField.SquareList[y][x].Moving.Square = null;
                         _playingField.SquareList[y][x].Moving = null;
                     }
                 } else

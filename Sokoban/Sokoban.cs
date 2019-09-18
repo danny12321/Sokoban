@@ -20,16 +20,21 @@ namespace Sokoban
 
             _playingField = _levelParser.getPlayingField();
 
-            _playingField.Show();
 
             while (_playing)
             {
-                ConsoleKey keyPressed = Console.ReadKey().Key;
-                Console.WriteLine(keyPressed);
+                _playingField.Show();
+                // input
+                // change field
 
+                // Get player input
+                ConsoleKey keyPressed = Console.ReadKey().Key;
+
+                // Get player
                 var player = getPlayer();
 
-                Console.WriteLine(player.PosX + " " + player.PosY);
+                movePlayer(player, keyPressed);
+
 
                 if (keyPressed == ConsoleKey.S)
                 {
@@ -38,7 +43,38 @@ namespace Sokoban
             }
         }
 
-        public Square getPlayer()
+        private void movePlayer(Square player, ConsoleKey keyPressed)
+        {
+            int x = player.PosY;
+            int y = player.PosX;
+
+            Console.WriteLine(_playingField.SquareList[y][x].PosX + " " + _playingField.SquareList[y][x].PosY);
+            
+            switch (keyPressed)
+            {
+                case ConsoleKey.LeftArrow:
+                    x = x - 1;
+                    break;
+                case ConsoleKey.UpArrow:
+                    y = y - 1;
+                    break;
+                case ConsoleKey.RightArrow:
+                    x = x + 1;
+                    break;
+                case ConsoleKey.DownArrow:
+                    y = y + 1;
+                    break;
+            }
+
+
+            if(_playingField.SquareList[y][x] is Floor)
+            {
+                _playingField.SquareList[y][x].Moving = player.Moving;
+                player.Moving = null;
+            }
+        }
+
+        private Square getPlayer()
         {
             for (int i = 0; i < _playingField.SquareList.Count; i++)
             {

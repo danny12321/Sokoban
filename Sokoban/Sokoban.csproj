@@ -63,6 +63,7 @@
   <ItemGroup />
   <ItemGroup>
     <Content Include="Levels\level1.txt" />
+    <Content Include="Levels\level2.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

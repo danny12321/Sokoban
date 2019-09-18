@@ -14,10 +14,10 @@ namespace Sokoban
 
         }
 
-        public PlayingField getPlayingField()
+        public PlayingField getPlayingField(int level)
         {
             PlayingField playingField = new PlayingField();
-            string[] lines = System.IO.File.ReadAllLines(@"../../Levels/level1.txt");
+            string[] lines = System.IO.File.ReadAllLines($@"../../Levels/level{level}.txt");
 
             for (int y = 0; y < lines.Length; y++)
             {
@@ -36,6 +36,8 @@ namespace Sokoban
 
                         case '.':
                             var floor = new Floor();
+                            floor.PosX = x;
+                            floor.PosY = y;
                             row.Add(floor);
                             break;
 

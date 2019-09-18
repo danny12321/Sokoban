@@ -10,7 +10,7 @@ namespace Sokoban
     {
         public LevelParser()
         {
-            
+
 
         }
 
@@ -21,20 +21,22 @@ namespace Sokoban
 
             for (int y = 0; y < lines.Length; y++)
             {
+                var row = new List<Square>();
+
                 for (int x = 0; x < lines[y].Length; x++)
                 {
-                    switch(lines[y][x])
+                    switch (lines[y][x])
                     {
                         case '#':
                             var wall = new Wall();
                             wall.PosX = x;
                             wall.PosY = y;
-                            playingField.SquareList.Add(new Wall());
+                            row.Add(new Wall());
                             break;
 
                         case '.':
                             var floor = new Floor();
-                            playingField.SquareList.Add(floor);
+                            row.Add(floor);
                             break;
 
                         case 'o':
@@ -42,14 +44,14 @@ namespace Sokoban
                             chest.PosX = x;
                             chest.PosY = y;
                             chest.Moving = new Chest();
-                            playingField.SquareList.Add(chest);
+                            row.Add(chest);
                             break;
 
                         case 'x':
                             var destination = new Destination();
                             destination.PosX = x;
                             destination.PosY = y;
-                            playingField.SquareList.Add(destination);
+                            row.Add(destination);
                             break;
 
                         case '@':
@@ -57,10 +59,12 @@ namespace Sokoban
                             player.PosX = x;
                             player.PosY = y;
                             player.Moving = new Player();
-                            playingField.SquareList.Add(player);
+                            row.Add(player);
                             break;
                     }
                 }
+
+                playingField.SquareList.Add(row);
             }
 
             return playingField;

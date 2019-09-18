@@ -10,5 +10,11 @@ namespace Sokoban
         public Moving Moving { get; set; }
         public int PosX { get; set; }
         public int PosY { get; set; }
+
+
+        public virtual void Show()
+        {
+
+        }
     }
 }

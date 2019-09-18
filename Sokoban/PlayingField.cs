@@ -7,12 +7,22 @@ namespace Sokoban
 {
     public class PlayingField
     {
-        private List<Square> _squareList = new List<Square>();
+        private List<List<Square>> _squareList = new List<List<Square>>();
 
-        public List<Square> SquareList
+        public List<List<Square>> SquareList
         {
             get { return _squareList; }
             set { _squareList = value; }
+        }
+
+        public void Show()
+        {
+            _squareList.ForEach(row =>
+            {
+                row.ForEach(s =>
+                {
+                });
+            });
         }
 
     }

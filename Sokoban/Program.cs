@@ -11,11 +11,9 @@ namespace Sokoban
         static void Main(string[] args)
         {
             var LevelParser = new LevelParser();
+            var PlayingField = LevelParser.getPlayingField();
 
-            LevelParser.getPlayingField();
-
-
-
+            PlayingField.Show();
 
             Console.ReadKey();
         }

@@ -36,6 +36,8 @@ namespace Sokoban
 
                         case '.':
                             var floor = new Floor();
+                            floor.PosX = x;
+                            floor.PosY = y;
                             row.Add(floor);
                             break;
 

@@ -44,7 +44,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chest.cs" />
+    <Compile Include="Destination.cs" />
     <Compile Include="Floor.cs" />
+    <Compile Include="LevelParser.cs" />
     <Compile Include="MovingSquare.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayingField.cs" />
@@ -56,6 +58,10 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="ClassDiagram1.cd" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Levels\level1.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

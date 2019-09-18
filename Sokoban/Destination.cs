@@ -5,8 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public abstract class Moving
+    public class Destination : Square
     {
-
     }
 }

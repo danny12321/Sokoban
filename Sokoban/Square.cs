@@ -7,6 +7,8 @@ namespace Sokoban
 {
     public abstract class Square
     {
-        private Moving Content;
+        public Moving Moving { get; set; }
+        public int PosX { get; set; }
+        public int PosY { get; set; }
     }
 }

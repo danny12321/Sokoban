@@ -22,14 +22,14 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Player">
-    <Position X="6.25" Y="5.75" Width="1.5" />
+    <Position X="8.75" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.PlayingField">
-    <Position X="4.75" Y="1" Width="1.5" />
+    <Position X="4.25" Y="1" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PlayingField.cs</FileName>
@@ -39,31 +39,35 @@
     </ShowAsCollectionAssociation>
   </Class>
   <Class Name="Sokoban.Chest">
-    <Position X="8.5" Y="5.75" Width="1.5" />
+    <Position X="11" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Moving">
-    <Position X="7.25" Y="4" Width="1.5" />
+    <Position X="7" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>MovingSquare.cs</FileName>
     </TypeIdentifier>
-    <ShowAsAssociation>
-      <Field Name="Position" />
-    </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Square">
     <Position X="4.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Field Name="Content" />
+      <Property Name="Moving" />
     </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Destination">
+    <Position X="5.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Destination.cs</FileName>
+    </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

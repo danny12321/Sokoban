@@ -8,17 +8,15 @@ namespace Sokoban
 {
     public class Sokoban
     {
-        private LevelParser _levelParser;
+        private LevelParser _levelParser = new LevelParser();
         private bool _playing;
         private PlayingField _playingField;
 
         public Sokoban()
         {
+            this.ChooseLevel();
             _playing = true;
 
-            _levelParser = new LevelParser();
-
-            _playingField = _levelParser.getPlayingField();
 
             _playingField.Show();
 
@@ -35,6 +33,31 @@ namespace Sokoban
                 {
                     _playing = false;
                 }
+            }
+        }
+
+        private void ChooseLevel()
+        {
+            Console.WriteLine("Choose a level. 1 - 2");
+            var value = Console.ReadLine();
+
+            try
+            {
+                int level = Int32.Parse(value);
+
+                if (level >= 1 && level <= 2)
+                {
+                    _playingField = _levelParser.getPlayingField(level);
+                } else
+                {
+                    Console.WriteLine($"Level {level} does not exist");
+                    this.ChooseLevel();
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Something went wrong, please try again");
+                this.ChooseLevel();
             }
         }
 

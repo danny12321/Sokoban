@@ -65,8 +65,14 @@ namespace Sokoban
             {
                 if(_playingField.SquareList[y + yTo][x + xTo] is Floor || _playingField.SquareList[y + yTo][x + xTo] is Destination)
                 {
-                    _playingField.SquareList[y + yTo][x + xTo].Moving = _playingField.SquareList[y][x].Moving;
-                    _playingField.SquareList[y][x].Moving = null;
+                    if(_playingField.SquareList[y + yTo][x + xTo].Moving is Chest)
+                    {
+                        return;
+                    } else
+                    {
+                        _playingField.SquareList[y + yTo][x + xTo].Moving = _playingField.SquareList[y][x].Moving;
+                        _playingField.SquareList[y][x].Moving = null;
+                    }
                 } else
                 {
                     return;

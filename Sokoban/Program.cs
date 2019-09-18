@@ -13,9 +13,6 @@ namespace Sokoban
             var LevelParser = new LevelParser();
 
             LevelParser.getPlayingField();
-
-            Console.WriteLine(Console.ReadKey().Key);
-            Console.ReadLine();
         }
     }
 }

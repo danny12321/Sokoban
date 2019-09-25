@@ -154,7 +154,7 @@ namespace Sokoban
 
         private void ChooseLevel()
         {
-            Console.WriteLine("Choose a level (1 - 2)");
+            Console.WriteLine("Choose a level (1 - 6)");
             var value = Console.ReadLine();
 
             if(value == "s")
@@ -166,7 +166,7 @@ namespace Sokoban
             {
                 int level = Int32.Parse(value);
 
-                if (level >= 1 && level <= 2)
+                if (level >= 1 && level <= 6)
                 {
                     _playingField = _levelParser.getPlayingField(level);
                 } else

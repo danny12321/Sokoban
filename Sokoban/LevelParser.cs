@@ -63,6 +63,12 @@ namespace Sokoban
                             player.Moving = new Player(player);
                             row.Add(player);
                             break;
+                        case '~':
+                            var pitfall = new Pitfall();
+                            pitfall.PosX = x;
+                            pitfall.PosY = y;
+                            row.Add(pitfall);
+                            break;
                     }
                 }
 

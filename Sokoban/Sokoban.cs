@@ -34,6 +34,7 @@ namespace Sokoban
 
             while (_playing)
             {
+                Console.Clear();
                 _playingField.Show();
 
                 ConsoleKey keyPressed = Console.ReadKey().Key;
@@ -43,7 +44,7 @@ namespace Sokoban
                     break;
                 }
 
-                movePlayer(null, keyPressed);
+                MovePlayer(keyPressed);
 
                 _playing = !CheckWin();
             }
@@ -69,12 +70,30 @@ namespace Sokoban
 
         private bool CheckWin()
         {
-            return false
+            return false;
         }
 
-        private void movePlayer(Square player, ConsoleKey keyPressed)
+        private void MovePlayer(ConsoleKey keyPressed)
         {
-            
+            Direction direction = Direction.Top;
+
+            switch (keyPressed)
+            {
+                case ConsoleKey.LeftArrow:
+                    direction = Direction.Left;
+                    break;
+                case ConsoleKey.UpArrow:
+                    direction = Direction.Top;
+                    break;
+                case ConsoleKey.RightArrow:
+                    direction = Direction.Right;
+                    break;
+                case ConsoleKey.DownArrow:
+                    direction = Direction.Bottom;
+                    break;
+            }
+
+            _playingField.Player.Move(direction);
         }
 
         private void WelcomeText()
@@ -118,7 +137,7 @@ namespace Sokoban
             }
             catch (Exception e)
             {
-                Console.WriteLine("Something went wrong, please try again");
+                Console.WriteLine(e);
                 this.ChooseLevel();
             }
         }

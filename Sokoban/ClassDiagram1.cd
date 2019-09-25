@@ -24,29 +24,29 @@
   <Class Name="Sokoban.Player">
     <Position X="11.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.PlayingField">
-    <Position X="4.5" Y="0.75" Width="1.5" />
+    <Position X="3.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAACAAAAAAEAAAABAAAAQAAAAA=</HashCode>
       <FileName>PlayingField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Chest">
     <Position X="11.5" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Moving">
+  <Class Name="Sokoban.Content">
     <Position X="7.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Moving.cs</FileName>
+      <HashCode>AAgAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Content.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Square" />
@@ -55,11 +55,11 @@
   <Class Name="Sokoban.Square">
     <Position X="4.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAIAA=</HashCode>
+      <HashCode>AAAAAAAAAgAAAAAAAAAQAAAAAAAMAAAACACAAAAAAAA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
-      <Property Name="Moving" />
+      <Property Name="Content" />
     </ShowAsAssociation>
   </Class>
   <Class Name="Sokoban.Destination">

@@ -44,10 +44,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Chest.cs" />
+    <Compile Include="Direction.cs" />
     <Compile Include="Destination.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="LevelParser.cs" />
-    <Compile Include="Moving.cs" />
+    <Compile Include="Content.cs" />
     <Compile Include="Pitfall.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="PlayingField.cs" />

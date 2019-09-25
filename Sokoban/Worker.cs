@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
-    class Worker : Moving
+    class Worker : Content
     {
         private bool IsSleeping;
         public Worker(Square square) : base(square)

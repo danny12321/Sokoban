@@ -15,7 +15,9 @@ namespace Sokoban
 
         public PlayingField getPlayingField(int level)
         {
-            PlayingField playingField = new PlayingField();
+            List<List<Square>> tempSquareList = new List<List<Square>>();
+            Player player = null;
+
             string[] lines = System.IO.File.ReadAllLines($@"../../Levels/level{level}.txt");
 
             for (int y = 0; y < lines.Length; y++)
@@ -27,51 +29,70 @@ namespace Sokoban
                     switch (lines[y][x])
                     {
                         case '#':
-                            var wall = new Wall();
-                            wall.PosX = x;
-                            wall.PosY = y;
                             row.Add(new Wall());
                             break;
 
                         case '.':
-                            var floor = new Floor();
-                            floor.PosX = x;
-                            floor.PosY = y;
-                            row.Add(floor);
+                            row.Add(new Floor());
                             break;
 
                         case 'o':
                             var chest = new Floor();
-                            chest.PosX = x;
-                            chest.PosY = y;
-                            chest.Moving = new Chest(chest);
+                            chest.Content = new Chest(chest);
                             row.Add(chest);
                             break;
 
                         case 'x':
-                            var destination = new Destination();
-                            destination.PosX = x;
-                            destination.PosY = y;
-                            row.Add(destination);
+                            row.Add(new Destination());
                             break;
 
                         case '@':
-                            var player = new Floor();
-                            player.PosX = x;
-                            player.PosY = y;
-                            player.Moving = new Player(player);
-                            row.Add(player);
+                            var floor = new Floor();
+                            player = new Player(floor);
+                            floor.Content = player;
+                            row.Add(floor);
                             break;
                         case '~':
-                            var pitfall = new Pitfall();
-                            pitfall.PosX = x;
-                            pitfall.PosY = y;
-                            row.Add(pitfall);
+                            row.Add(new Pitfall());
                             break;
                     }
                 }
 
-                playingField.SquareList.Add(row);
+                tempSquareList.Add(row);
+            }
+
+            PlayingField playingField = new PlayingField() { Player = player };
+
+            for (int i = 0; i < tempSquareList.Count; i++)
+            {
+                for (int j = 0; j < tempSquareList[i].Count; j++)
+                {
+                    // TOP
+                    if (i > 0)
+                    {
+                        tempSquareList[i][j].Top = tempSquareList[i - 1][j];
+                    }
+
+                    // Bottom
+                    if (i < tempSquareList.Count - 1)
+                    {
+                        tempSquareList[i][j].Bottom = tempSquareList[i + 1][j];
+                    }
+
+                    // Left
+                    if (j > 0)
+                    {
+                        tempSquareList[i][j].Left = tempSquareList[i][j - 1];
+                    }
+
+                    // Right
+                    if (j < tempSquareList[i].Count - 1)
+                    {
+                        tempSquareList[i][j].Right = tempSquareList[i][j + 1];
+                    }
+
+                    playingField.Squares.Add(tempSquareList[i][j]);
+                }
             }
 
             return playingField;

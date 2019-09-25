@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Sokoban
 {
-    public class Chest : Moving
+    public class Chest : Content
     {
         public Chest(Square square) : base(square)
         {
@@ -24,6 +24,14 @@ namespace Sokoban
             {
                 Console.Write("o");
             }
+        }
+
+        public override bool Move(Direction direction)
+        {
+            Square squareTo = DirectionToSquare(direction);
+            if (squareTo.Content is Chest) return false;
+
+            return base.Move(direction);
         }
     }
 }

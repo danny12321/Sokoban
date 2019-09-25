@@ -15,26 +15,70 @@ namespace Sokoban
         public Sokoban()
         {
             WelcomeText();
+            Play();
+        }
+
+        private void Play()
+        {
             ChooseLevel();
             _playing = true;
-
-
 
             while (_playing)
             {
                 _playingField.Show();
 
                 ConsoleKey keyPressed = Console.ReadKey().Key;
+                if (keyPressed == ConsoleKey.S)
+                {
+                    _playing = false;
+                    break;
+                }
 
                 var player = getPlayer();
 
                 movePlayer(player, keyPressed);
 
-                if (keyPressed == ConsoleKey.S)
+
+                _playing = !CheckWin();
+            }
+
+            _playingField.Show();
+
+            Console.WriteLine("\n You won!");
+            Console.WriteLine("Do you want to play again? (Y/n)");
+
+            var k = Console.ReadKey().Key;
+            Console.WriteLine();
+
+            if (k == ConsoleKey.Y)
+            {
+                Play();
+            }
+            else
+            {
+                Console.WriteLine("Ciao");
+                Console.ReadLine();
+            }
+        }
+
+        private bool CheckWin()
+        {
+            for (int i = 0; i < _playingField.SquareList.Count; i++)
+            {
+                for (int j = 0; j < _playingField.SquareList[i].Count; j++)
                 {
-                    _playing = false;
+                    if (_playingField.SquareList[i][j] is Destination)
+                    {
+                        if (_playingField.SquareList[i][j].Moving == null || !(_playingField.SquareList[i][j].Moving is Chest))
+                        {
+                            return false;
+                        }
+                    }
                 }
             }
+
+
+            return true;
         }
 
         private void movePlayer(Square player, ConsoleKey keyPressed)

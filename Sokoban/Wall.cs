@@ -8,7 +8,6 @@ namespace Sokoban
     public class Wall : Square
     {
 
-
         public override void Show()
         {
             Console.Write("█");

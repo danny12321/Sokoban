@@ -11,7 +11,6 @@ namespace Sokoban
         public LevelParser()
         {
 
-
         }
 
         public PlayingField getPlayingField(int level)

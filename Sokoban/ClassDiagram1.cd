@@ -22,21 +22,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Player">
-    <Position X="8.75" Y="5" Width="1.5" />
+    <Position X="11.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Player.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.PlayingField">
-    <Position X="4.5" Y="0.5" Width="1.5" />
+    <Position X="4.5" Y="0.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAUAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>PlayingField.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Sokoban.Chest">
-    <Position X="11" Y="5" Width="1.5" />
+    <Position X="11.5" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Chest.cs</FileName>
@@ -55,7 +55,7 @@
   <Class Name="Sokoban.Square">
     <Position X="4.5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAwAAAAAAEAAAAAAAAAAAAIAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAIAA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>

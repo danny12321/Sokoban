@@ -43,10 +43,7 @@ namespace Sokoban
                     break;
                 }
 
-                var player = getPlayer();
-
-                movePlayer(player, keyPressed);
-
+                movePlayer(null, keyPressed);
 
                 _playing = !CheckWin();
             }
@@ -72,80 +69,12 @@ namespace Sokoban
 
         private bool CheckWin()
         {
-            for (int i = 0; i < _playingField.SquareList.Count; i++)
-            {
-                for (int j = 0; j < _playingField.SquareList[i].Count; j++)
-                {
-                    if (_playingField.SquareList[i][j] is Destination)
-                    {
-                        if (_playingField.SquareList[i][j].Moving == null || !(_playingField.SquareList[i][j].Moving is Chest))
-                        {
-                            return false;
-                        }
-                    }
-                }
-            }
-
-
-            return true;
+            return false
         }
 
         private void movePlayer(Square player, ConsoleKey keyPressed)
         {
-            int xTo = 0;
-            int yTo = 0;
             
-            switch (keyPressed)
-            {
-                case ConsoleKey.LeftArrow:
-                    xTo = -1;
-                    break;
-                case ConsoleKey.UpArrow:
-                    yTo = -1;
-                    break;
-                case ConsoleKey.RightArrow:
-                    xTo = 1;
-                    break;
-                case ConsoleKey.DownArrow:
-                    yTo = 1;
-                    break;
-            }
-
-            int x = player.PosX + xTo;
-            int y = player.PosY + yTo;
-
-            if (_playingField.SquareList[y][x].Moving is Chest)
-            {
-                if(_playingField.SquareList[y + yTo][x + xTo] is Floor || _playingField.SquareList[y + yTo][x + xTo] is Destination)
-                {
-                    if(_playingField.SquareList[y + yTo][x + xTo].Moving is Chest)
-                    {
-                        return;
-                    } else
-                    {
-
-                        // TODO: LOOK HERE GOOD AT || WORKS BUT DON'T KNOW WHY ¯\_(ツ)_/¯
-                        _playingField.SquareList[y + yTo][x + xTo].Moving = _playingField.SquareList[y][x].Moving;
-                        _playingField.SquareList[y + yTo][x + xTo].Moving.Square = _playingField.SquareList[y][x].Moving.Square;
-                        _playingField.SquareList[y][x].Moving.Square = _playingField.SquareList[y + yTo][x + xTo];
-                        _playingField.SquareList[y][x].Moving = null;
-                    }
-                } else
-                {
-                    return;
-                }
-            }
-
-            if (_playingField.SquareList[y][x] is Floor || _playingField.SquareList[y][x] is Destination)
-            {
-                _playingField.SquareList[y][x].Moving = player.Moving;
-                _playingField.SquareList[y][x].Moving.Square = player.Moving.Square;
-                player.Moving.Square = _playingField.SquareList[y][x];
-                player.Moving = null;
-            }
-
-            FootstepSound.controls.stop();
-            FootstepSound.controls.play();
         }
 
         private void WelcomeText()
@@ -192,23 +121,6 @@ namespace Sokoban
                 Console.WriteLine("Something went wrong, please try again");
                 this.ChooseLevel();
             }
-        }
-
-        public Square getPlayer()
-        {
-            for (int i = 0; i < _playingField.SquareList.Count; i++)
-            {
-                for (int j = 0; j < _playingField.SquareList[i].Count; j++)
-                {
-                    if (_playingField.SquareList[i][j].Moving is Player)
-                    {
-                        return _playingField.SquareList[i][j];
-                    }
-                }
-            }
-
-            return null;
-
         }
     }
 

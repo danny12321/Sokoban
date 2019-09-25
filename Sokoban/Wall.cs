@@ -11,7 +11,7 @@ namespace Sokoban
 
         public override void Show()
         {
-            Console.Write("#");
+            Console.Write("█");
         }
     }
 }

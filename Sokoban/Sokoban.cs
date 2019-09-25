@@ -144,7 +144,7 @@ namespace Sokoban
                 player.Moving = null;
             }
 
-
+            FootstepSound.controls.stop();
             FootstepSound.controls.play();
         }
 

@@ -11,9 +11,18 @@ namespace Sokoban
         private LevelParser _levelParser = new LevelParser();
         private bool _playing;
         private PlayingField _playingField;
+        private WMPLib.WindowsMediaPlayer FootstepSound;
 
         public Sokoban()
         {
+            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
+            wplayer.URL = "http://www.tomatenland.nl/content/mp3/Guus%20Meeuwis%20-%20Brabant.mp3";
+            wplayer.controls.play();
+
+            FootstepSound = new WMPLib.WindowsMediaPlayer();
+            FootstepSound.URL = "https://www.fesliyanstudios.com/sp.php?i=/731.mp3";
+
             WelcomeText();
             Play();
         }
@@ -134,6 +143,9 @@ namespace Sokoban
                 player.Moving.Square = _playingField.SquareList[y][x];
                 player.Moving = null;
             }
+
+            FootstepSound.controls.stop();
+            FootstepSound.controls.play();
         }
 
         private void WelcomeText()

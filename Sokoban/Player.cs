@@ -21,19 +21,26 @@ namespace Sokoban
         {
             Square squareTo = DirectionToSquare(direction);
 
-            if (base.Move(direction))
+            bool canMove = true;
+
+            if(squareTo.Content is Chest)
             {
-
-                Square.Content = null;
-
-                Square = squareTo;
-                squareTo.Content = this;
-
+                if(!squareTo.Content.Move(direction))
+                {
+                    canMove = false;
+                }
             }
 
+            if (canMove)
+            {
 
-
-            return true;
+                if (!base.Move(direction))
+                {
+                    canMove = false;
+                }
+            }
+            return canMove;
         }
+
     }
 }

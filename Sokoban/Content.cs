@@ -40,30 +40,20 @@ namespace Sokoban
         {
             Square squareTo = DirectionToSquare(direction);
 
-            // Never go on a wall
-            if (squareTo is Wall)
+            bool canMove = true;
+
+            if (squareTo is Wall) canMove = false;
+            
+            if (canMove)
             {
-                return false;
+                Square.Content = null;
+
+                Square = squareTo;
+                squareTo.Content = this;
             }
 
-            //if (squareTo.Content != null)
-            //{
-            //
-            //    if (!squareTo.Content.Move(direction))
-            //    {
-            //        return false;
-            //    }
-            //}
-
-            //if (Square.Content != null)
-            //{
-            //    Square.Content.Square = squareTo;
-            //}
-            //
-            //squareTo.Content = Square.Content;
-            //Square.Content = null;
-
-            return true;
+            return canMove;
         }
+
     }
 }

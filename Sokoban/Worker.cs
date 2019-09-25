@@ -25,5 +25,10 @@ namespace Sokoban
                 Console.Write("$");
             }
         }
+
+        public override bool Move(Direction direction)
+        {
+            return true;
+        }
     }
 }

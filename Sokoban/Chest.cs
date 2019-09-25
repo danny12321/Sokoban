@@ -29,9 +29,18 @@ namespace Sokoban
         public override bool Move(Direction direction)
         {
             Square squareTo = DirectionToSquare(direction);
-            if (squareTo.Content is Chest) return false;
 
-            return base.Move(direction);
+            bool canMove = true;
+
+            if (squareTo.Content is Chest) canMove = false;
+
+            if(canMove)
+            {
+                if (!base.Move(direction)) canMove = false;
+            }
+
+
+            return canMove;
         }
     }
 }

@@ -28,7 +28,7 @@ namespace Sokoban
 
         public override bool Move(Direction direction)
         {
-            Square squareTo = DirectionToSquare(direction);
+            var squareTo = DirectionToSquare(direction);
 
             bool canMove = true;
 
@@ -39,6 +39,13 @@ namespace Sokoban
                 if (!base.Move(direction)) canMove = false;
             }
 
+            if (squareTo is Pitfall)
+            {
+                if (squareTo.CanFallThrough)
+                {
+                    Square.Content = null;
+                }
+            }
 
             return canMove;
         }

@@ -17,8 +17,8 @@ namespace Sokoban
         {
             WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
-            wplayer.URL = "http://www.tomatenland.nl/content/mp3/Guus%20Meeuwis%20-%20Brabant.mp3";
-            wplayer.controls.play();
+            // wplayer.URL = "http://www.tomatenland.nl/content/mp3/Guus%20Meeuwis%20-%20Brabant.mp3";
+            // wplayer.controls.play();
 
             FootstepSound = new WMPLib.WindowsMediaPlayer();
             FootstepSound.URL = "https://www.fesliyanstudios.com/sp.php?i=/731.mp3";

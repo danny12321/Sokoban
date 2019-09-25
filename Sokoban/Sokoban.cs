@@ -70,7 +70,16 @@ namespace Sokoban
 
         private bool CheckWin()
         {
-            return false;
+            bool hasWon = true;
+            _playingField.Squares.FindAll(s => s is Destination).ForEach(s => 
+            {
+                if(!(s.Content is Chest))
+                {
+                    hasWon = false;
+                }
+            });
+
+            return hasWon;
         }
 
         private void MovePlayer(ConsoleKey keyPressed)

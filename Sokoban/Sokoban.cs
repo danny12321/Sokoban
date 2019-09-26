@@ -34,8 +34,9 @@ namespace Sokoban
         {
             ChooseLevel();
             _playing = true;
+            bool won = false;
 
-            while (_playing)
+            while (_playing && !won)
             {
                 Console.Clear();
                 _playingField.Show();
@@ -51,13 +52,18 @@ namespace Sokoban
 
                 _playingField.Worker?.Play();
 
-                _playing = !CheckWin();
+                won = CheckWin();
             }
 
+            Console.Clear();
             _playingField.Show();
 
-            Console.WriteLine("\n You won!");
-            Console.WriteLine("Do you want to play again? (Y/n)");
+            if (won)
+            {
+                Console.WriteLine("\nYou won!");
+            }
+
+            Console.WriteLine("Do you want to play again? (Y)");
 
             var k = Console.ReadKey().Key;
             Console.WriteLine();
@@ -68,7 +74,7 @@ namespace Sokoban
             }
             else
             {
-                Console.WriteLine("Ciao");
+                Console.WriteLine($"Ciao! (Press enter to leave)");
                 Console.ReadLine();
             }
         }
@@ -76,9 +82,9 @@ namespace Sokoban
         private bool CheckWin()
         {
             bool hasWon = true;
-            _playingField.Squares.FindAll(s => s is Destination).ForEach(s => 
+            _playingField.Squares.FindAll(s => s is Destination).ForEach(s =>
             {
-                if(!(s.Content is Chest))
+                if (!(s.Content is Chest))
                 {
                     hasWon = false;
                 }
@@ -133,7 +139,7 @@ namespace Sokoban
             Console.WriteLine("Choose a level (1 - 6)");
             var value = Console.ReadLine();
 
-            if(value == "s")
+            if (value == "s")
             {
                 System.Environment.Exit(1);
             }
@@ -145,7 +151,8 @@ namespace Sokoban
                 if (level >= 1 && level <= 7)
                 {
                     _playingField = _levelParser.getPlayingField(level);
-                } else
+                }
+                else
                 {
                     Console.WriteLine($"Level {level} does not exist");
                     this.ChooseLevel();
@@ -153,7 +160,7 @@ namespace Sokoban
             }
             catch (Exception e)
             {
-                Console.WriteLine(e);
+                Console.WriteLine("Why you no good level enter?");
                 this.ChooseLevel();
             }
         }

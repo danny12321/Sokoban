@@ -18,7 +18,10 @@ namespace Sokoban
             WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
             // wplayer.URL = "http://www.tomatenland.nl/content/mp3/Guus%20Meeuwis%20-%20Brabant.mp3";
-            // wplayer.controls.play();
+            wplayer.URL = "https://staticcrate.com/content/audio-pro/soundscrate-digital-distress.mp3";
+            wplayer.controls.play();
+
+
 
             FootstepSound = new WMPLib.WindowsMediaPlayer();
             FootstepSound.URL = "https://www.fesliyanstudios.com/sp.php?i=/731.mp3";
@@ -45,6 +48,8 @@ namespace Sokoban
                 }
 
                 MovePlayer(keyPressed);
+
+                _playingField.Worker?.Play();
 
                 _playing = !CheckWin();
             }
@@ -102,6 +107,8 @@ namespace Sokoban
                     break;
             }
 
+            FootstepSound.controls.stop();
+            FootstepSound.controls.play();
             _playingField.Player.Move(direction);
         }
 
@@ -135,7 +142,7 @@ namespace Sokoban
             {
                 int level = Int32.Parse(value);
 
-                if (level >= 1 && level <= 6)
+                if (level >= 1 && level <= 7)
                 {
                     _playingField = _levelParser.getPlayingField(level);
                 } else

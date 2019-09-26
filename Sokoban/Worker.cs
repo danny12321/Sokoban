@@ -6,12 +6,14 @@ using System.Threading.Tasks;
 
 namespace Sokoban
 {
-    class Worker : Content
+    public class Worker : Content
     {
-        private bool IsSleeping;
+        public bool IsSleeping;
+        Square _square;
+
         public Worker(Square square) : base(square)
         {
-
+            _square = square;
         }
 
         public override void Show()
@@ -26,8 +28,61 @@ namespace Sokoban
             }
         }
 
+        public void Play()
+        {
+            Random random = new Random();
+            int randomNumber = random.Next(0, 101);
+
+            if (IsSleeping)
+            {
+                if (randomNumber <= 10)
+                {
+                    IsSleeping = false;
+                }
+            }
+            else
+            {
+                if (randomNumber <= 25)
+                {
+                    IsSleeping = true;
+                }
+                else
+                {
+                    Walk();
+                }
+            }
+        }
+
+        private void Walk()
+        {
+            Array values = Enum.GetValues(typeof(Direction));
+            Random random = new Random();
+            bool moved = false;
+
+            while (!moved)
+            {
+                Direction randomDirection = (Direction)values.GetValue(random.Next(values.Length));
+                moved = Move(randomDirection);
+            }
+        }
+
         public override bool Move(Direction direction)
         {
+            Square squareTo = DirectionToSquare(direction);
+
+            if (squareTo.Content is Player)
+            {
+                if (!squareTo.Content.Move(direction))
+                {
+                    return false;
+                }
+            }
+
+            if (!base.Move(direction))
+            {
+                return false;
+            }
+
             return true;
         }
     }

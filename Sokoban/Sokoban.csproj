@@ -46,6 +46,7 @@
     <Compile Include="Chest.cs" />
     <Compile Include="Direction.cs" />
     <Compile Include="Destination.cs" />
+    <Compile Include="Empty.cs" />
     <Compile Include="Floor.cs" />
     <Compile Include="LevelParser.cs" />
     <Compile Include="Content.cs" />
@@ -78,6 +79,8 @@
     <Content Include="Levels\level1.txt" />
     <Content Include="Levels\level2.txt" />
     <Content Include="Levels\level5.txt" />
+    <Content Include="Levels\level6.txt" />
+    <Content Include="Levels\level7.txt" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

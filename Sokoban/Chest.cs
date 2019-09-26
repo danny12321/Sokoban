@@ -9,14 +9,14 @@ namespace Sokoban
     {
         public Chest(Square square) : base(square)
         {
-            
+
         }
 
         public override void Show()
         {
             var e = Square;
 
-            if(Square is Destination)
+            if (Square is Destination)
             {
                 Console.Write("O");
             }
@@ -30,14 +30,10 @@ namespace Sokoban
         {
             var squareTo = DirectionToSquare(direction);
 
-            bool canMove = true;
 
-            if (squareTo.Content is Chest) canMove = false;
+            if (squareTo.Content is Chest) return false;
 
-            if(canMove)
-            {
-                if (!base.Move(direction)) canMove = false;
-            }
+            if (!base.Move(direction)) return false;
 
             if (squareTo is Pitfall)
             {
@@ -47,7 +43,7 @@ namespace Sokoban
                 }
             }
 
-            return canMove;
+            return true;
         }
     }
 }

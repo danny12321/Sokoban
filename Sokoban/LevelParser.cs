@@ -17,6 +17,7 @@ namespace Sokoban
         {
             List<List<Square>> tempSquareList = new List<List<Square>>();
             Player player = null;
+            Worker worker = null;
 
             string[] lines = System.IO.File.ReadAllLines($@"../../Levels/level{level}.txt");
 
@@ -55,13 +56,24 @@ namespace Sokoban
                         case '~':
                             row.Add(new Pitfall());
                             break;
+                        case '$':
+                            var floor2 = new Floor();
+                            worker = new Worker(floor2);
+                            floor2.Content = worker;
+                            row.Add(floor2);
+                            break;
+                        case ' ':
+                            Console.WriteLine("EMPTY");
+                            var empty = new Empty();
+                            row.Add(empty);
+                            break;
                     }
                 }
 
                 tempSquareList.Add(row);
             }
 
-            PlayingField playingField = new PlayingField() { Player = player };
+            PlayingField playingField = new PlayingField() { Player = player, Worker = worker };
 
             for (int i = 0; i < tempSquareList.Count; i++)
             {

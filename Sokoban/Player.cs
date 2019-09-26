@@ -7,7 +7,7 @@ namespace Sokoban
 {
     public class Player : Content
     {
-        public Player(Square square) : base (square)
+        public Player(Square square) : base(square)
         {
 
         }
@@ -21,26 +21,19 @@ namespace Sokoban
         {
             Square squareTo = DirectionToSquare(direction);
 
-            bool canMove = true;
-
-            if(squareTo.Content is Chest)
+            if (squareTo.Content is Worker)
             {
-                if(!squareTo.Content.Move(direction))
-                {
-                    canMove = false;
-                }
+                var worker = (Worker)squareTo.Content;
+                worker.IsSleeping = false;
+                return false;
             }
 
-            if (canMove)
+            if (!base.Move(direction))
             {
-
-                if (!base.Move(direction))
-                {
-                    canMove = false;
-                }
+                return false;
             }
-            return canMove;
+
+            return true;
         }
-
     }
 }

@@ -17,7 +17,6 @@ namespace Sokoban.View
             set { _playingField = value; }
         }
 
-
         public ConsoleView()
         {
             Console.WriteLine("Welcome to Sokoban!");
@@ -46,7 +45,6 @@ namespace Sokoban.View
         public void Render()
         {
             Console.Clear();
-
             var vertical = _playingField.Squares[0];
 
             while (vertical != null)
@@ -70,8 +68,6 @@ namespace Sokoban.View
                 Console.WriteLine();
                 vertical = vertical.Bottom;
             }
-
-
         }
 
         private void ShowContent(Content content)
@@ -122,6 +118,10 @@ namespace Sokoban.View
                     Console.Write("~");
                 }
             }
+            else if (square is Empty)
+            {
+                Console.Write(" ");
+            }
         }
 
         public void Won()
@@ -132,6 +132,7 @@ namespace Sokoban.View
 
         public ConsoleKey Restart()
         {
+            Console.WriteLine();
             Console.WriteLine("Do you want to play again? (Y)");
 
             var value = Console.ReadKey().Key;

@@ -21,7 +21,6 @@ namespace Sokoban
             FootstepSound = new WMPLib.WindowsMediaPlayer();
             FootstepSound.URL = "https://www.fesliyanstudios.com/sp.php?i=/731.mp3";
 
-
             ChooseLevel();
 
             Play();
@@ -50,8 +49,6 @@ namespace Sokoban
 
                 won = CheckWin();
             }
-
-            _consoleView.Won();
 
             if (won) _consoleView.Won();
 

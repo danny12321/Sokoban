@@ -64,7 +64,6 @@ namespace Sokoban
                             row.Add(floor2);
                             break;
                         case ' ':
-                            Console.WriteLine("EMPTY");
                             var empty = new Empty();
                             row.Add(empty);
                             break;

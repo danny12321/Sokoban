@@ -71,25 +71,26 @@ namespace Sokoban.View
                 vertical = vertical.Bottom;
             }
 
-            
+
         }
 
         private void ShowContent(Content content)
         {
-            if(content is Chest)
+            if (content is Chest)
             {
                 Console.Write("o");
-            } 
+            }
             else if (content is Player)
             {
                 Console.Write("@");
             }
             else if (content is Worker)
             {
-                if (content.IsSleeping)
+                if (((Worker)content).IsSleeping)
                 {
                     Console.Write("z");
-                } else
+                }
+                else
                 {
                     Console.Write("$");
                 }
@@ -112,10 +113,11 @@ namespace Sokoban.View
             }
             else if (square is Pitfall)
             {
-                if(square.CanFallThrough)
+                if (((Pitfall)square).CanFallThrough)
                 {
                     Console.Write(" ");
-                } else
+                }
+                else
                 {
                     Console.Write("~");
                 }

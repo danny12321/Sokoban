@@ -23,7 +23,7 @@ namespace Sokoban.Model
 
             if (squareTo is Pitfall)
             {
-                if (squareTo.CanFallThrough)
+                if (((Pitfall)squareTo).CanFallThrough)
                 {
                     Square.Content = null;
                 }

@@ -7,7 +7,6 @@ namespace Sokoban.Model
 {
     public abstract class Square
     {
-        public virtual bool CanFallThrough { get; }
         public virtual Content Content { get; set; }
         public Square Top { get; set; }
         public Square Right { get; set; }

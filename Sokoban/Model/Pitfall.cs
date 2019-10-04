@@ -26,7 +26,7 @@ namespace Sokoban.Model
             }
         }
 
-        public override bool CanFallThrough
+        public bool CanFallThrough
         {
             get { return _hit >= 3; }
         }

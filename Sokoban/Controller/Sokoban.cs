@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Sokoban.Model;
+using Sokoban.View;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,37 +13,31 @@ namespace Sokoban
         private LevelParser _levelParser = new LevelParser();
         private bool _playing;
         private PlayingField _playingField;
+        private ConsoleView _consoleView = new ConsoleView();
         private WMPLib.WindowsMediaPlayer FootstepSound;
 
         public Sokoban()
         {
-            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
-
-            // wplayer.URL = "http://www.tomatenland.nl/content/mp3/Guus%20Meeuwis%20-%20Brabant.mp3";
-            wplayer.URL = "https://staticcrate.com/content/audio-pro/soundscrate-digital-distress.mp3";
-            wplayer.controls.play();
-
-
-
             FootstepSound = new WMPLib.WindowsMediaPlayer();
             FootstepSound.URL = "https://www.fesliyanstudios.com/sp.php?i=/731.mp3";
 
-            WelcomeText();
+
+            ChooseLevel();
+
             Play();
         }
 
         private void Play()
         {
-            ChooseLevel();
             _playing = true;
             bool won = false;
 
             while (_playing && !won)
             {
-                Console.Clear();
-                _playingField.Show();
+                _consoleView.Render();
 
                 ConsoleKey keyPressed = Console.ReadKey().Key;
+
                 if (keyPressed == ConsoleKey.S)
                 {
                     _playing = false;
@@ -55,20 +51,19 @@ namespace Sokoban
                 won = CheckWin();
             }
 
-            Console.Clear();
-            _playingField.Show();
+            _consoleView.Won();
 
-            if (won)
-            {
-                Console.WriteLine("\nYou won!");
-            }
+            if (won) _consoleView.Won();
 
-            Console.WriteLine("Do you want to play again? (Y)");
+            this.Restart();
+        }
 
-            var k = Console.ReadKey().Key;
-            Console.WriteLine();
 
-            if (k == ConsoleKey.Y)
+        public void Restart()
+        {
+            var value = _consoleView.Restart();
+
+            if (value == ConsoleKey.Y)
             {
                 Play();
             }
@@ -118,26 +113,10 @@ namespace Sokoban
             _playingField.Player.Move(direction);
         }
 
-        private void WelcomeText()
-        {
-            Console.WriteLine("Welcome to Sokoban!");
-            Console.WriteLine("Push the crates to the destinations with the truck \n");
-
-            Console.WriteLine("Symbols:");
-            Console.WriteLine("#: Wall");
-            Console.WriteLine(".: Floor");
-            Console.WriteLine("o: Chest");
-            Console.WriteLine("O: Chest at destination");
-            Console.WriteLine("x: Destination");
-            Console.WriteLine("@: Truck");
-
-            Console.WriteLine();
-        }
 
         private void ChooseLevel()
         {
-            Console.WriteLine("Choose a level (1 - 6)");
-            var value = Console.ReadLine();
+            var value = _consoleView.ChooseLevel();
 
             if (value == "s")
             {
@@ -151,6 +130,7 @@ namespace Sokoban
                 if (level >= 1 && level <= 7)
                 {
                     _playingField = _levelParser.getPlayingField(level);
+                    _consoleView.PlayingField = _playingField;
                 }
                 else
                 {

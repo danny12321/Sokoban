@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
     public abstract class Content
     {
@@ -12,11 +12,6 @@ namespace Sokoban
         public Content(Square square)
         {
             Square = square;
-        }
-
-        public virtual void Show()
-        {
-            Console.Write(" ");
         }
 
         protected Square DirectionToSquare(Direction direction)

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
     public abstract class Square
     {
@@ -14,9 +14,5 @@ namespace Sokoban
         public Square Bottom { get; set; }
         public Square Left { get; set; }
 
-        public virtual void Show()
-        {
-            Console.Write(" ");
-        }
     }
 }

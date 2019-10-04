@@ -3,14 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
     public class Destination : Square
     {
 
-        public override void Show()
-        {
-            Console.Write("x");
-        }
     }
 }

@@ -1,38 +1,36 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Sokoban.Program">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="Sokoban.Model.Wall">
+    <Position X="7.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
-      <FileName>Program.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Wall">
-    <Position X="0.75" Y="5.75" Width="1.5" />
+  <Class Name="Sokoban.Model.Floor">
+    <Position X="9.5" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Wall.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Floor.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Floor">
-    <Position X="2.5" Y="5.75" Width="1.5" />
+  <Class Name="Sokoban.Model.Player">
+    <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Floor.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Player.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Player">
-    <Position X="10.25" Y="0.5" Width="1.5" />
+  <Class Name="Sokoban.Model.PlayingField">
+    <Position X="9.75" Y="1" Width="1.5" />
+    <AssociationLine Name="Worker" Type="Sokoban.Model.Worker">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="2.581" Y="0.37" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Player.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="Sokoban.PlayingField">
-    <Position X="2.25" Y="1" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAEAAAABAAAAQAAAAA=</HashCode>
-      <FileName>PlayingField.cs</FileName>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAQAAAAA=</HashCode>
+      <FileName>Model\PlayingField.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="Player" />
@@ -42,56 +40,90 @@
       <Property Name="Squares" />
     </ShowAsCollectionAssociation>
   </Class>
-  <Class Name="Sokoban.Chest">
-    <Position X="10.25" Y="3.25" Width="1.5" />
+  <Class Name="Sokoban.Model.Chest">
+    <Position X="16.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Chest.cs</FileName>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Chest.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Content">
-    <Position X="8" Y="3.75" Width="1.5" />
+  <Class Name="Sokoban.Model.Content">
+    <Position X="14.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAAAAIAAAAAAAAAAAAAAAAAEAAAAAAAgAAAAAAA=</HashCode>
-      <FileName>Content.cs</FileName>
+      <HashCode>AAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Model\Content.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Square" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Sokoban.Square">
-    <Position X="4.5" Y="2.75" Width="1.5" />
+  <Class Name="Sokoban.Model.Square">
+    <Position X="9.75" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAgAAAAAAgAAQAAAAAAAMAAAACACAAAAAAAA=</HashCode>
-      <FileName>Square.cs</FileName>
+      <HashCode>AAAAAAAAAgAAAAAAgAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
+      <FileName>Model\Square.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Property Name="Content" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Sokoban.Destination">
-    <Position X="4.5" Y="5.75" Width="1.5" />
+  <Class Name="Sokoban.Model.Destination">
+    <Position X="11.25" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Destination.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Destination.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Sokoban.Pitfall">
-    <Position X="6.25" Y="5.75" Width="1.5" />
+  <Class Name="Sokoban.Model.Pitfall">
+    <Position X="13" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACAAgAAAAABgAIAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Pitfall.cs</FileName>
+      <HashCode>AAAAAACAAgAAAAABgAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Pitfall.cs</FileName>
     </TypeIdentifier>
     <ShowAsAssociation>
       <Field Name="_content" />
     </ShowAsAssociation>
   </Class>
-  <Class Name="Sokoban.Worker">
-    <Position X="8" Y="0.75" Width="1.5" />
+  <Class Name="Sokoban.Model.Worker">
+    <Position X="16.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>gAAAAAAAAIAAAAAAAAAAAAAAAAAEAAAAgAAAAAAAAAA=</HashCode>
-      <FileName>Worker.cs</FileName>
+      <HashCode>gAAAAAAAAIAAAAAAAAAAAAAAAAAAIAAggAAAAAAAAAA=</HashCode>
+      <FileName>Model\Worker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_square" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Sokoban">
+    <Position X="2.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAAAAAAIBAAAAAQAAACAAQAAAAAgAAAAAQAAAg=</HashCode>
+      <FileName>Controller\Sokoban.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_levelParser" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.LevelParser">
+    <Position X="2.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\LevelParser.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Sokoban.Model.Empty">
+    <Position X="5.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Empty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Sokoban.Model.Direction">
+    <Position X="19" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
+      <FileName>Model\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

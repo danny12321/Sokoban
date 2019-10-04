@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
     public class Pitfall : Square
     {
@@ -29,18 +29,6 @@ namespace Sokoban
         public override bool CanFallThrough
         {
             get { return _hit >= 3; }
-        }
-
-
-        public override void Show()
-        {
-            if(_hit >= 3)
-            {
-                Console.Write(" ");
-            } else
-            {
-                Console.Write("~");
-            }
         }
 
         public void Hit()

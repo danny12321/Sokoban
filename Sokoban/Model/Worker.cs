@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
     public class Worker : Content
     {
@@ -14,18 +14,6 @@ namespace Sokoban
         public Worker(Square square) : base(square)
         {
             _square = square;
-        }
-
-        public override void Show()
-        {
-            if (IsSleeping)
-            {
-                Console.Write("z");
-            }
-            else
-            {
-                Console.Write("$");
-            }
         }
 
         public void Play()

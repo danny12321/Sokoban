@@ -4,14 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Sokoban
+namespace Sokoban.Model
 {
-    public class Empty : Square
+    public enum Direction
     {
-
-        public bool Move()
-        {
-            return false;
-        }
+        Top,
+        Right,
+        Bottom,
+        Left
     }
 }

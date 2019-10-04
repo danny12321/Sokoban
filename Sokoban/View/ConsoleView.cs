@@ -86,7 +86,13 @@ namespace Sokoban.View
             }
             else if (content is Worker)
             {
-                Console.Write("$");
+                if (content.IsSleeping)
+                {
+                    Console.Write("z");
+                } else
+                {
+                    Console.Write("$");
+                }
             }
         }
 
@@ -103,6 +109,16 @@ namespace Sokoban.View
             else if (square is Destination)
             {
                 Console.Write("x");
+            }
+            else if (square is Pitfall)
+            {
+                if(square.CanFallThrough)
+                {
+                    Console.Write(" ");
+                } else
+                {
+                    Console.Write("~");
+                }
             }
         }
 

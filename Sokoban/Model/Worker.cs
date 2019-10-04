@@ -8,7 +8,7 @@ namespace Sokoban.Model
 {
     public class Worker : Content
     {
-        public bool IsSleeping;
+        public new bool IsSleeping;
         Square _square;
 
         public Worker(Square square) : base(square)

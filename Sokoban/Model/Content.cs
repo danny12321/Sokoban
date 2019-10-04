@@ -8,6 +8,7 @@ namespace Sokoban.Model
     public abstract class Content
     {
         public Square Square { get; set; }
+        public bool IsSleeping { get; internal set; }
 
         public Content(Square square)
         {

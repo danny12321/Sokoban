@@ -45,6 +45,8 @@ namespace Sokoban.View
 
         public void Render()
         {
+            Console.Clear();
+
             var vertical = _playingField.Squares[0];
 
             while (vertical != null)
@@ -56,11 +58,11 @@ namespace Sokoban.View
                 {
                     if (horizontal.Content != null)
                     {
-                        this.ShowContent();
+                        ShowContent(horizontal.Content);
                     }
                     else
                     {
-                        this.ShowSquare();
+                        ShowSquare(horizontal);
                     }
                     horizontal = horizontal.Right;
                 }
@@ -68,16 +70,40 @@ namespace Sokoban.View
                 Console.WriteLine();
                 vertical = vertical.Bottom;
             }
+
+            
         }
 
-        private void ShowContent()
+        private void ShowContent(Content content)
         {
-
+            if(content is Chest)
+            {
+                Console.Write("o");
+            } 
+            else if (content is Player)
+            {
+                Console.Write("@");
+            }
+            else if (content is Worker)
+            {
+                Console.Write("$");
+            }
         }
 
-        private void ShowSquare()
+        private void ShowSquare(Square square)
         {
-
+            if (square is Wall)
+            {
+                Console.Write("█");
+            }
+            else if (square is Floor)
+            {
+                Console.Write(".");
+            }
+            else if (square is Destination)
+            {
+                Console.Write("x");
+            }
         }
 
         public void Won()

@@ -23,12 +23,7 @@ namespace Sokoban.Model
                 return false;
             }
 
-            if (!base.Move(direction))
-            {
-                return false;
-            }
-
-            return true;
+            return base.Move(direction);
         }
     }
 }

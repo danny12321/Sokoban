@@ -1,11 +1,152 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Sokoban.Model.PlayingField">
-    <Position X="6" Y="4.25" Width="1.5" />
+  <Class Name="Sokoban.Model.Wall">
+    <Position X="8.75" Y="5.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAABAAAAAAABAAAAAAAAAAAAAAAAAABAAAAQAAAAA=</HashCode>
-      <FileName>Model\PlayingField.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Wall.cs</FileName>
     </TypeIdentifier>
   </Class>
+  <Class Name="Sokoban.Model.Floor">
+    <Position X="10.5" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Floor.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.Player">
+    <Position X="13.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.PlayingField">
+    <Position X="6.75" Y="1.25" Width="1.5" />
+    <AssociationLine Name="Worker" Type="Sokoban.Model.Worker" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="8.25" Y="1.884" />
+        <Point X="8.625" Y="1.884" />
+        <Point X="8.625" Y="2.812" />
+        <Point X="10.5" Y="2.812" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.37" Y="2.581" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAQAAAAA=</HashCode>
+      <FileName>Model\PlayingField.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="Player" />
+      <Field Name="Worker" />
+    </ShowAsAssociation>
+    <ShowAsCollectionAssociation>
+      <Property Name="Squares" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.Chest">
+    <Position X="16" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Chest.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.Content">
+    <Position X="13.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Model\Content.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Square" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.Square">
+    <Position X="6.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgAAAAAAAAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
+      <FileName>Model\Square.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Content" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.Destination">
+    <Position X="12.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Destination.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.Pitfall">
+    <Position X="14" Y="5.75" Width="1.5" />
+    <AssociationLine Name="_content" Type="Sokoban.Model.Content" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="15.25" Y="5.75" />
+        <Point X="15.25" Y="5.125" />
+        <Point X="14.875" Y="5.125" />
+        <Point X="14.875" Y="4.488" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAgAAAAABgAIAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Pitfall.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_content" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Model.Worker">
+    <Position X="10.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>gAAAAAAAAIAAAAAAAAAAAAAAAAAAIAAggAAAAAAAAAA=</HashCode>
+      <FileName>Model\Worker.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_square" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.Sokoban">
+    <Position X="3.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAAAAAAIBAAAAAQAAACAAQAAAAAgAAAAAQAAAg=</HashCode>
+      <FileName>Controller\Sokoban.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="_levelParser" />
+      <Field Name="_playingField" />
+      <Field Name="_consoleView" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Sokoban.LevelParser">
+    <Position X="3.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controller\LevelParser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.Model.Empty">
+    <Position X="6.75" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Empty.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Sokoban.View.ConsoleView">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAIAAAQAAAAAAAAAQAAAAAAAACQAAAAABAAAAQAAAA=</HashCode>
+      <FileName>View\ConsoleView.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Sokoban.Model.Direction">
+    <Position X="16" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAACACAAAAAAAA=</HashCode>
+      <FileName>Model\Direction.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

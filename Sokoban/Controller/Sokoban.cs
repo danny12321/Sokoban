@@ -47,7 +47,7 @@ namespace Sokoban
 
                 _playingField.Worker?.Play();
 
-                won = CheckWin();
+                won = _playingField.CheckWin();
             }
 
             if (won) _consoleView.Won();
@@ -69,20 +69,6 @@ namespace Sokoban
                 Console.WriteLine($"Ciao! (Press enter to leave)");
                 Console.ReadLine();
             }
-        }
-
-        private bool CheckWin()
-        {
-            bool hasWon = true;
-            _playingField.Squares.FindAll(s => s is Destination).ForEach(s =>
-            {
-                if (!(s.Content is Chest))
-                {
-                    hasWon = false;
-                }
-            });
-
-            return hasWon;
         }
 
         private void MovePlayer(ConsoleKey keyPressed)

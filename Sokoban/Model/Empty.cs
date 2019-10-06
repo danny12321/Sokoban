@@ -8,10 +8,5 @@ namespace Sokoban.Model
 {
     public class Empty : Square
     {
-
-        public bool Move()
-        {
-            return false;
-        }
     }
 }

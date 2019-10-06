@@ -12,6 +12,18 @@ namespace Sokoban.Model
         public Worker Worker;
 
         
+        public bool CheckWin()
+        {
+            bool hasWon = true;
+            Squares.FindAll(s => s is Destination).ForEach(s =>
+            {
+                if (!(s.Content is Chest))  
+                {
+                    hasWon = false;
+                }
+            });
 
+            return hasWon;
+        }
     }
 }

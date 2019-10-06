@@ -16,7 +16,6 @@ namespace Sokoban.Model
         {
             var squareTo = DirectionToSquare(direction);
 
-
             if (squareTo.Content is Chest) return false;
 
             if (!base.Move(direction)) return false;

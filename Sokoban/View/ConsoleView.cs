@@ -74,7 +74,14 @@ namespace Sokoban.View
         {
             if (content is Chest)
             {
-                Console.Write("o");
+                if (content.Square is Destination)
+                {
+                    Console.Write("O");
+                }
+                else
+                {
+                    Console.Write("o");
+                }
             }
             else if (content is Player)
             {
